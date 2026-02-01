@@ -1,0 +1,204 @@
+:root {
+  --cream: #fff6ec;
+  --peach: #ffd2c6;
+  --coral: #ff8066;
+  --berry: #c3425b;
+  --ink: #2b1f1c;
+  --shadow: rgba(43, 31, 28, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, var(--peach), var(--cream) 55%);
+  color: var(--ink);
+  font-family: "Quicksand", "Segoe UI", sans-serif;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  filter: blur(0.5px);
+  background: linear-gradient(135deg, rgba(255, 128, 102, 0.5), rgba(195, 66, 91, 0.35));
+  z-index: -1;
+}
+
+body::before {
+  top: -120px;
+  left: -120px;
+}
+
+body::after {
+  bottom: -140px;
+  right: -120px;
+}
+
+.card {
+  width: min(90vw, 520px);
+  padding: 36px 32px 28px;
+  background: white;
+  border-radius: 28px;
+  box-shadow: 0 20px 50px var(--shadow);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: floatIn 700ms ease-out both;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--berry);
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+}
+
+h1 {
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  margin: 20px 0 8px;
+}
+
+.lead {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.photo {
+  position: relative;
+  margin: 0 auto 24px;
+  width: 200px;
+  height: 200px;
+}
+
+.photo-glow {
+  position: absolute;
+  inset: -14px;
+  border-radius: 28px;
+  background: conic-gradient(from 45deg, var(--coral), var(--peach), var(--berry), var(--coral));
+  filter: blur(12px);
+  opacity: 0.6;
+}
+
+.photo-inner {
+  position: relative;
+  inset: 0;
+  height: 100%;
+  border-radius: 24px;
+  border: 3px dashed var(--peach);
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  color: #b46b5d;
+  background: linear-gradient(145deg, #fff1ed, #fff8f4);
+}
+
+.actions {
+  display: grid;
+  gap: 12px;
+  margin: 0 auto 10px;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-yes {
+  background: var(--coral);
+  color: white;
+  box-shadow: 0 10px 18px rgba(255, 128, 102, 0.35);
+}
+
+.btn-yes:hover {
+  transform: translateY(-2px);
+}
+
+.btn-no {
+  background: #ffe9e3;
+  color: #8c4b41;
+}
+
+.note {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  color: #7a5a54;
+}
+
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  z-index: -1;
+}
+
+.floating-hearts span {
+  position: absolute;
+  font-size: 1.2rem;
+  color: rgba(195, 66, 91, 0.35);
+  animation: drift 9s infinite ease-in-out;
+}
+
+.floating-hearts span:nth-child(odd) {
+  color: rgba(255, 128, 102, 0.35);
+}
+
+.floating-hearts span:nth-child(1) { top: 12%; left: 18%; animation-delay: 0s; }
+.floating-hearts span:nth-child(2) { top: 20%; left: 70%; animation-delay: 1s; }
+.floating-hearts span:nth-child(3) { top: 65%; left: 22%; animation-delay: 2s; }
+.floating-hearts span:nth-child(4) { top: 72%; left: 78%; animation-delay: 3s; }
+.floating-hearts span:nth-child(5) { top: 45%; left: 50%; animation-delay: 4s; }
+.floating-hearts span:nth-child(6) { top: 8%; left: 50%; animation-delay: 5s; }
+.floating-hearts span:nth-child(7) { top: 82%; left: 35%; animation-delay: 6s; }
+.floating-hearts span:nth-child(8) { top: 30%; left: 85%; animation-delay: 7s; }
+.floating-hearts span:nth-child(9) { top: 55%; left: 10%; animation-delay: 8s; }
+.floating-hearts span:nth-child(10) { top: 38%; left: 62%; animation-delay: 9s; }
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-18px) scale(1.1); }
+}
+
+@media (min-width: 600px) {
+  .actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
