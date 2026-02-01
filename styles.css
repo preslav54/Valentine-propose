@@ -144,6 +144,12 @@ h1 {
   color: #8c4b41;
 }
 
+.btn-no:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 .note {
   margin: 10px 0 0;
   font-size: 0.9rem;
@@ -181,6 +187,43 @@ h1 {
 .floating-hearts span:nth-child(9) { top: 55%; left: 10%; animation-delay: 8s; }
 .floating-hearts span:nth-child(10) { top: 38%; left: 62%; animation-delay: 9s; }
 
+.success-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 246, 236, 0.88);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 240ms ease;
+}
+
+.success-screen.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.success-card {
+  background: white;
+  padding: 28px;
+  border-radius: 22px;
+  box-shadow: 0 18px 42px var(--shadow);
+  text-align: center;
+  width: min(90vw, 420px);
+  animation: popIn 280ms ease-out both;
+}
+
+.success-title {
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-size: 1.8rem;
+  margin: 0 0 8px;
+}
+
+.success-text {
+  margin: 0 0 18px;
+  line-height: 1.6;
+}
+
 @keyframes floatIn {
   from {
     opacity: 0;
@@ -195,6 +238,17 @@ h1 {
 @keyframes drift {
   0%, 100% { transform: translateY(0) scale(1); }
   50% { transform: translateY(-18px) scale(1.1); }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media (min-width: 600px) {

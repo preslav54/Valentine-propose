@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Be My Valentine?</title>
+    <title>Ще бъдеш ли моят Валентин?</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,27 +14,36 @@
   </head>
   <body>
     <main class="card">
-      <div class="badge">For You</div>
-      <h1>Will you be my Valentine?</h1>
+      <div class="badge">За теб</div>
+      <h1>Скъпа Васи, ще бъдеш ли моят Валентин?</h1>
       <p class="lead">
-        I promise cozy dates, goofy laughs, and all the chocolate your heart can
-        handle.
+        На 14.02.2026 искам да бъде нашата специална дата. Обещавам уютни срещи,
+        много смях и толкова шоколад, колкото сърцето ти може да понесе.
       </p>
 
       <div class="photo">
         <div class="photo-glow"></div>
-        <div class="photo-inner">Add your photo here</div>
+        <div class="photo-inner">Добави ваша снимка тук</div>
       </div>
 
       <div class="actions">
-        <button class="btn btn-yes" id="yesBtn">Yes, of course!</button>
-        <button class="btn btn-no" id="noBtn">Hmm… not yet</button>
+        <button class="btn btn-yes" id="yesBtn">Да, разбира се!</button>
+        <button class="btn btn-no" id="noBtn" disabled>Хм… още не</button>
       </div>
 
-      <p class="note" id="note">
-        P.S. This page was made with a smile and a lot of love.
-      </p>
+      <p class="note" id="note">P.S. За теб, Васи. С усмивка и много любов.</p>
     </main>
+
+    <section class="success-screen" id="successScreen" aria-hidden="true">
+      <div class="success-card">
+        <p class="success-title">Ура! Имаме среща! 💘</p>
+        <p class="success-text">
+          Толкова съм щастлив, че каза да. Нямам търпение да празнуваме на
+          14.02.2026.
+        </p>
+        <button class="btn btn-yes" id="closeScreen">Затвори</button>
+      </div>
+    </section>
 
     <div class="floating-hearts" aria-hidden="true">
       <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>

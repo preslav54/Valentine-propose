@@ -1,24 +1,27 @@
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const note = document.getElementById("note");
+const successScreen = document.getElementById("successScreen");
+const closeScreen = document.getElementById("closeScreen");
 
 const yesMessages = [
-  "You just made my day! 💖",
-  "Yay! Our date is on!",
-  "Best answer ever. I love you!",
-  "Woohoo! I can't wait!",
+  "Току-що ми направи деня! 💖",
+  "Ура! Нашата среща е факт!",
+  "Най-добрият отговор! Обичам те!",
+  "Ууу! Нямам търпение!",
 ];
 
 yesBtn.addEventListener("click", () => {
   const message = yesMessages[Math.floor(Math.random() * yesMessages.length)];
   note.textContent = message;
   confettiHearts();
+  successScreen.classList.add("is-visible");
+  successScreen.setAttribute("aria-hidden", "false");
 });
 
-noBtn.addEventListener("mouseenter", () => {
-  const offsetX = Math.random() * 160 - 80;
-  const offsetY = Math.random() * 120 - 60;
-  noBtn.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+closeScreen.addEventListener("click", () => {
+  successScreen.classList.remove("is-visible");
+  successScreen.setAttribute("aria-hidden", "true");
 });
 
 function confettiHearts() {
